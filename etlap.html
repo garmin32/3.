@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étlap</title>
+    <link rel="icon" href="letöltés.jpg" type="jpg">
+    <style>
+        body{
+            background-color: rgb(133, 101, 60);
+        }
+        header{
+            color:white;
+            font-size: large;
+        }
+        
+        div{
+            display:inline-block;
+            font-size:larger;    
+            margin:40px;      
+        }
+        
+        p{
+            font-size: larger;
+            margin:5px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 align="center"><strong>A <span id="hó"></span> étlap</strong></h1>
+
+    <script>
+        const currentMonthIndex = new Date().getMonth();
+        const months = [
+            "januári", "februári", "márciusi", "áprilisi", "májusi", "juniusi",
+            "júliusi", "augusztusi", "szeptemberi", "októberi", "novemberi", "decemberi"
+        ];
+        document.getElementById("hó").textContent = months[currentMonthIndex];
+    </script>
+    <selection>
+        <div>dátum</div>
+        <div>előétel</div>
+        <div>főétel</div>
+    </selection>
+    </header>
+    <p>03.03.  Zöldborsóleves, bakonyi csirkemell, galuska</p>
+    <br>
+    <p>03.04.  Almaleves, grillezett csirkemell, burgonyapüré, kápsal.</p>
+    <br>
+    <p>03.05.  Hagymaleves, zöldbabfőzelék, sajtos pulykamell, banán</p>
+    <br>
+    <p>03.06.  Daragaluska leves, chilis bab, narancs</p>
+    <br>
+    <p>07. Karfiolleves, túrós csusza</p>
+    <br>
+    <p>03.10.  Újházi tyúkhúsleves, paradicsomos káposzta, pulykasült</p>
+    <br>
+    <p>03.11.  Brokkoli krémleves, csirkepörkölt,tarhonya,csem.ub.,alma</p>
+    <br>
+    <p>03.12.  Barackleves, Csáky rostélyos, petrezselymes rizs, banán</p>
+    <br>
+    <p>03.13.  Lencseleves, bolognai spagetti, mandarin</p>
+    <br>
+    <p>03.14.  Sóskaleves, hagymás szárnyasragu, rizibizi</p>
+    <br>
+    <p>03.17.  Paradicsomleves, rakott burgonya, csemege uborka</p>
+    <br>
+    <p>03.18.  Szilvaleves, olasz csirkemell, sült burg., cole-slaw saláta</p>   
+    <br>
+    <p>03.19.  Sertésragu leves, serpenyős burgonya, csem. ub. mandarin</p>
+    <br>
+    <p>03.20.  Csontleves, spenótfőzelék, főtt tojás, banán</p>
+    <br>
+    <p>03.21.  Zöldbableves, túrós derelye</p>
+    <br>
+    <p>03.24.  Egresleves, pulykamell corn flake-s bundában, kukoricás rizs</p>
+    <br>
+    <p>03.25.  Szárnyas aprólék leves, sárgaborsó főzelék, vagdalt, banán</p>
+    <br>
+    <p>03.26.  Gombaleves, lasagne, narancs</p>
+    <br>
+    <p>03.27.  Sertésragu leves, krumplis tészta, csalamádé</p>
+    <br>
+    <p>03.28.  Babgulyás, tejberizs kakaóval</p>
+    
+</body>
+</html>

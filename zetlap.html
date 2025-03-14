@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ Zétlap</title>
+    <link rel="icon" href="letöltés.jpg" type="jpg">
+    <style>
+        body{
+            background: rgb(188, 211, 57);
+            margin:0;
+            padding:0;
+            height: 100%;
+            flex-direction: column;
+
+        
+        }
+        header{
+            background: rgb(0, 0, 0);
+            background-image: url(https://i.ytimg.com/vi/x4iYNJr8w9A/maxresdefault.jpg);
+            background-size:cover;
+            opacity: calc(0.85);
+            margin:0px;
+            height:175px;
+            color:white;
+        }
+        h2{
+            margin: 25px;
+            display:flexbox;
+        }
+
+        button{
+            background: rgb(141, 139, 139);
+            color:rgb(255, 255, 255)
+            
+        }
+        section{
+            background: rgba(255, 255, 255, 0.801);
+            display:flex;
+            flex-direction:row;
+            
+            div {
+             
+             width: 100px;
+            color:black;
+            margin:auto;
+
+            }
+        }
+        ul{
+            margin:0;
+            padding:0;
+            list-style-type:none;
+
+
+        }
+        li{
+            display:inline-block;
+            margin:20px;
+            background-color: white;
+            border-radius: 2px;
+            opacity: 0.85;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        footer{
+            position:absolute;
+            bottom:0; 
+            width:100%;
+            text-align: left;
+            font-size:5px;
+            background-color: black;
+            color:white;       
+            h1{
+                display: inline-block;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="etlap.html">Étlap</a></li>
+                <li><a href="ertek.html">Értékelések</a></li>
+                <li><a href="rolunk.html">Rólunk</a></li>
+
+            </ul>
+        </nav>
+        <h1 align="center">Szrg étlap</h1>
+
+    </header>
+
+    <!--<section>
+        
+        <div><strong>étlap</strong></div>
+        <div>értékelések</div>
+        <div>rólunk</div>
+    
+    
+    </section>-->
+    <h1 align="center">Mai menü</h1>
+    <h2>Előétel</h2>
+    <h2>Főfogás</h2>
+    <h2>Desszert</h2>
+    <div class="kontener">
+        <div class="kaja" id="kajakulcs">
+            Loading menu....
+        </div>
+        <div class="timestamp" id="timestamp-info">
+            Loading timestamp...
+        </div>
+    <script>
+        function updateKaja(){
+            fetch("marcius17.txt")
+                .then(response => response.text())
+                .then(data=>{
+                    const lines= data.split("\n");
+                    const timestampline = lines[0];
+                    const currentDate = new Date().toISOString().split("T")[0];
+                    const fileDate = timestampline.split("")[2];
+                    if (fileDate !== currentDate){
+                        document.getElementById("kajakulcs").textContent = "Jön a kaja...";
+                        document.getElementById("timestamp-info").textContent ="Menu újratöltése...";
+                        fetchNewMenuData();
+                    } else {
+                        document.getElementById("kajakulcs").textContent = lines.slice(1).join("\n");
+                        document.getElementById("timestamp-info").textContent = timestampline;
+                    }
+                    })
+                .catch(error => {
+                    document.getElementById("kajakulcs").textContent = "Nincs kaja :(";
+                    document.getElementById("timestamp-info").textContent="";
+                    console.error("error:",error);
+                });
+        }
+        function fetchNewMenuData(){
+            const newMenuData = `Utoljára frissítve: ${new Date().toISOString().split("T")[0]}
+            Menu: Tomato soup, casserole potatoes, gherkin cucumber`;
+
+            setTimeout(()=>{
+                document.getElementById("kajakulcs").textContent = "Menu frissítve!";
+                document.getElementById("timestamp-info").textContent = newMenuData.split("\n")[0];
+            }, 2000);
+        }
+        window.onload = updateKaja;
+
+
+    </script>
+    
+    <p align="center"><button><strong>Értékelés!</strong></button></p>
+    <footer>
+        <h1>© Minden jog fenntartva!</h1>
+
+    </footer>
+
+        
+</body>
+</html>
